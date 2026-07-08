@@ -1,10 +1,14 @@
 import streamlit as st
+from snowflake.snowpark import Session
 
-st.header('Crypto Dashboard')
 
-home_page = st.Page("main.py", title="Home", icon="🏠", default=True)
-page_1 = st.Page("page.py", title="Analytics", icon="📈")
+st.header("Welcome to Crypto Dashboard")
 
-pg = st.navigation([home_page, page_1])
+conn = st.connection("myconnections", type="snowflake")
+session = conn.session()
+#session = connections()
+if session == True:
+    st.success('This is a success message!', icon="✅")
 
-pg.run()
+else:
+    st.error("Failed to connect")   
