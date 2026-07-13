@@ -1,2 +1,0 @@
-streamit
-snowflake-snowpark-python
